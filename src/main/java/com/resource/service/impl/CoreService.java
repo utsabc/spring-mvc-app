@@ -73,7 +73,7 @@ public class CoreService implements ICoreService{
 		});
 		 finalAnd.append("] }");
 		 queryParts.add(finalAnd.toString());
-		 finalQuery = "{$and:["+queryParts.stream().map(i -> i.toString()).collect(Collectors.joining(","))+"]}";
+		 finalQuery = "{$and:["+queryParts.stream().map(String::toString).collect(Collectors.joining(","))+"]}";
 		 result = mongoDAO.find(finalQuery);
 		 return result;
 	}
